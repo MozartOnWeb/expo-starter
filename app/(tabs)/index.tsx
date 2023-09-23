@@ -66,6 +66,6 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 16,
     fontWeight: "bold",
-    fontFamily: "space_mono_regular",
+    fontFamily: "manrope_semibold",
   },
 });

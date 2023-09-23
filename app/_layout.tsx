@@ -1,4 +1,3 @@
-import FontAwesome from "@expo/vector-icons/FontAwesome";
 import {
   DarkTheme,
   DefaultTheme,
@@ -9,6 +8,13 @@ import {
   SpaceMono_400Regular,
   SpaceMono_700Bold,
 } from "@expo-google-fonts/space-mono";
+
+import {
+  Manrope_400Regular,
+  Manrope_600SemiBold,
+  Manrope_700Bold,
+} from "@expo-google-fonts/manrope";
+
 import { SplashScreen, Stack } from "expo-router";
 import { useEffect } from "react";
 import { useColorScheme } from "react-native";
@@ -30,6 +36,9 @@ export default function RootLayout() {
   const [loaded, error] = useFonts({
     space_mono_regular: SpaceMono_400Regular,
     space_mono_bold: SpaceMono_700Bold,
+    manrope_regular: Manrope_400Regular,
+    manrope_semibold: Manrope_600SemiBold,
+    manrope_bold: Manrope_700Bold,
   });
 
   // Expo Router uses Error Boundaries to catch errors in the navigation tree.
