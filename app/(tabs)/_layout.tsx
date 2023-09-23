@@ -60,7 +60,7 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
-        tabBarShowLabel: false,
+        tabBarShowLabel: true,
       }}
     >
       {navigationTabs.map(({ title, screenName, icon, active }) => (
@@ -74,6 +74,7 @@ export default function TabLayout() {
                 xml={focused ? active : icon}
                 width={size}
                 height={size}
+                fill={color}
               />
             ),
           }}
