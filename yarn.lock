@@ -1187,6 +1187,11 @@
   dependencies:
     "@types/hammerjs" "^2.0.36"
 
+"@expo-google-fonts/space-mono@^0.2.3":
+  version "0.2.3"
+  resolved "https://registry.yarnpkg.com/@expo-google-fonts/space-mono/-/space-mono-0.2.3.tgz#e9ef34b85a3b3f403958c56f03eb583c365fa3f1"
+  integrity sha512-OpypFAHHAfIPipJXUIE1g0AF9juPciPPsUheCLyqgNNbxfVTiQjFFiTQI5up4Q2Xj9waNwoeFMBj0e6dvWi/mw==
+
 "@expo/bunyan@4.0.0", "@expo/bunyan@^4.0.0":
   version "4.0.0"
   resolved "https://registry.yarnpkg.com/@expo/bunyan/-/bunyan-4.0.0.tgz#be0c1de943c7987a9fbd309ea0b1acd605890c7b"

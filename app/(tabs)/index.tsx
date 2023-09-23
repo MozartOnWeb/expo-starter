@@ -22,7 +22,7 @@ export default function TabOneScreen() {
                 transition={1000}
               />
             </View>
-            <Text>Yacouba Dama</Text>
+            <Text style={styles.title}>Yacouba Dama</Text>
           </View>
         </View>
       </ScrollView>
@@ -62,5 +62,10 @@ const styles = StyleSheet.create({
     height: 38,
     borderRadius: 100,
     objectFit: "cover",
+  },
+  title: {
+    fontSize: 16,
+    fontWeight: "bold",
+    fontFamily: "space_mono_regular",
   },
 });
