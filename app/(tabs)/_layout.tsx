@@ -2,6 +2,8 @@ import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Link, Tabs } from "expo-router";
 import { Pressable, useColorScheme } from "react-native";
 import { SvgXml } from "react-native-svg";
+import { BlurView } from "expo-blur";
+import { StyleSheet } from "react-native";
 
 import Colors from "../../constants/Colors";
 
@@ -60,7 +62,24 @@ export default function TabLayout() {
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? "light"].tint,
-        tabBarShowLabel: true,
+        tabBarShowLabel: false,
+        tabBarStyle: {
+          height: 100,
+          position: "absolute",
+          alignSelf: "center",
+          display: "flex",
+          borderRadius: 20,
+          borderTopColor: "transparent",
+          overflow: "hidden",
+          backgroundColor: "transparent",
+        },
+        tabBarBackground: () => (
+          <BlurView
+            tint={colorScheme === "dark" ? "dark" : "light"}
+            intensity={100}
+            style={[StyleSheet.absoluteFill]}
+          />
+        ),
       }}
     >
       {navigationTabs.map(({ title, screenName, icon, active }) => (

@@ -1,12 +1,27 @@
 import { StyleSheet } from "react-native";
 
-import { Text, View } from "../../components/Themed";
+import { Text, View, ScrollView } from "../../components/Themed";
 
 export default function TabOneScreen() {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Home</Text>
-    </View>
+    <ScrollView>
+      <View style={styles.container}>
+        <Text style={styles.title}>Home</Text>
+        <Text style={styles.title}>Home</Text>
+        <Text style={styles.title}>Home</Text>
+        <Text style={styles.title}>Home</Text>
+        <Text style={styles.title}>Home</Text>
+        <Text style={styles.title}>Home</Text>
+        <Text style={styles.title}>Home</Text>
+        <Text style={styles.title}>Home</Text>
+        <Text style={styles.title}>Home</Text>
+        <Text style={styles.title}>Home</Text>
+        <Text style={styles.title}>Home</Text>
+        <Text style={styles.title}>Home</Text>
+        <Text style={styles.title}>Home</Text>
+        <Text style={styles.title}>Home</Text>
+      </View>
+    </ScrollView>
   );
 }
 
@@ -19,6 +34,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 20,
     fontWeight: "bold",
+    marginBottom: 100,
   },
   separator: {
     marginVertical: 30,
