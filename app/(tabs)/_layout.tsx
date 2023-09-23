@@ -13,6 +13,8 @@ import {
   SavedActiveIcon,
   ExploreIcon,
   ExploreActiveIcon,
+  SettingIcon,
+  SettingActiveIcon,
 } from "../../assets/icons";
 
 /**
@@ -42,6 +44,12 @@ const navigationTabs: {
     screenName: "explore",
     icon: ExploreIcon,
     active: ExploreActiveIcon,
+  },
+  {
+    title: "Setting",
+    screenName: "setting",
+    icon: SettingIcon,
+    active: SettingActiveIcon,
   },
 ];
 

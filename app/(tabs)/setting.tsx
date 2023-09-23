@@ -2,10 +2,10 @@ import { StyleSheet } from "react-native";
 
 import { View, Text } from "../../components/Themed";
 
-export default function SavedScreen() {
+export default function SettingScreen() {
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Saved</Text>
+      <Text style={styles.title}>Setting</Text>
     </View>
   );
 }
