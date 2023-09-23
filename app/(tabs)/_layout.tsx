@@ -1,8 +1,15 @@
 import FontAwesome from "@expo/vector-icons/FontAwesome";
 import { Link, Tabs } from "expo-router";
 import { Pressable, useColorScheme } from "react-native";
+import { SvgXml } from "react-native-svg";
 
 import Colors from "../../constants/Colors";
+
+//import types
+import { IconProps, SavedIcon } from "../../assets/icons";
+
+//import icons
+import { HomeIcon } from "../../assets/icons";
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
@@ -14,6 +21,23 @@ function TabBarIcon(props: {
   return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
 }
 
+const navigationTabs: {
+  title: string;
+  screenName: string;
+  icon: string;
+}[] = [
+  {
+    title: "Home",
+    screenName: "index",
+    icon: HomeIcon,
+  },
+  {
+    title: "Tab Two",
+    screenName: "two",
+    icon: SavedIcon,
+  },
+];
+
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
@@ -24,22 +48,18 @@ export default function TabLayout() {
         tabBarShowLabel: false,
       }}
     >
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: "Home",
-          headerShown: false,
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="two"
-        options={{
-          title: "Tab Two",
-          headerShown: false,
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
-        }}
-      />
+      {navigationTabs.map(({ title, screenName, icon }) => (
+        <Tabs.Screen
+          key={screenName}
+          name={screenName}
+          options={{
+            headerShown: false,
+            tabBarIcon: ({ color, size, focused }) => (
+              <SvgXml xml={icon} width={size} height={size} />
+            ),
+          }}
+        />
+      ))}
     </Tabs>
   );
 }
