@@ -5,36 +5,43 @@ import { SvgXml } from "react-native-svg";
 
 import Colors from "../../constants/Colors";
 
-//import types
-import { IconProps, SavedIcon } from "../../assets/icons";
-
 //import icons
-import { HomeIcon } from "../../assets/icons";
+import {
+  HomeIcon,
+  HomeActiveIcon,
+  SavedIcon,
+  SavedActiveIcon,
+  ExploreIcon,
+  ExploreActiveIcon,
+} from "../../assets/icons";
 
 /**
  * You can explore the built-in icon families and icons on the web at https://icons.expo.fyi/
  */
-function TabBarIcon(props: {
-  name: React.ComponentProps<typeof FontAwesome>["name"];
-  color: string;
-}) {
-  return <FontAwesome size={28} style={{ marginBottom: -3 }} {...props} />;
-}
 
 const navigationTabs: {
   title: string;
   screenName: string;
   icon: string;
+  active: string;
 }[] = [
   {
     title: "Home",
     screenName: "index",
     icon: HomeIcon,
+    active: HomeActiveIcon,
   },
   {
-    title: "Tab Two",
-    screenName: "two",
+    title: "Saved",
+    screenName: "saved",
     icon: SavedIcon,
+    active: SavedActiveIcon,
+  },
+  {
+    title: "Explore",
+    screenName: "explore",
+    icon: ExploreIcon,
+    active: ExploreActiveIcon,
   },
 ];
 
@@ -48,14 +55,18 @@ export default function TabLayout() {
         tabBarShowLabel: false,
       }}
     >
-      {navigationTabs.map(({ title, screenName, icon }) => (
+      {navigationTabs.map(({ title, screenName, icon, active }) => (
         <Tabs.Screen
           key={screenName}
           name={screenName}
           options={{
             headerShown: false,
             tabBarIcon: ({ color, size, focused }) => (
-              <SvgXml xml={icon} width={size} height={size} />
+              <SvgXml
+                xml={focused ? active : icon}
+                width={size}
+                height={size}
+              />
             ),
           }}
         />
