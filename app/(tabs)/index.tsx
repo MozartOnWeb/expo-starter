@@ -1,4 +1,6 @@
-import { Pressable, StyleSheet, useColorScheme, Button } from "react-native";
+import { useState } from "react";
+import { Pressable, StyleSheet, useColorScheme } from "react-native";
+import { FlashList } from "@shopify/flash-list";
 import { Image } from "expo-image";
 import { SvgXml } from "react-native-svg";
 
@@ -16,7 +18,36 @@ import { NotificationsIcon, SearchIcon } from "../../assets/icons";
 const blurhash =
   "|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[";
 
+const categories = [
+  {
+    name: "All",
+  },
+  {
+    name: "Business",
+  },
+  {
+    name: "Sports",
+  },
+  {
+    name: "Technology",
+  },
+  {
+    name: "Entertainment",
+  },
+  {
+    name: "Science",
+  },
+  {
+    name: "Health",
+  },
+];
+
 export default function TabOneScreen() {
+  const [activeCategory, setActiveCategory] = useState(categories[0]);
+
+  const handleActiveCategory = (category: string) => {
+    setActiveCategory({ name: category });
+  };
   const colorScheme = useColorScheme();
   return (
     <SafeAreaView style={styles.container}>
@@ -67,6 +98,37 @@ export default function TabOneScreen() {
           <Pressable style={homeSearchStyles.button}>
             <Text style={homeSearchStyles.text}>Search</Text>
           </Pressable>
+        </View>
+
+        {/* HOME CATEGORIES SECTION */}
+        <View>
+          <FlashList
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={homeCategoriesStyles.container}
+            renderItem={({ item }: { item: string }) => {
+              return (
+                <Pressable
+                  onPress={() => handleActiveCategory(item)}
+                  style={
+                    activeCategory.name === item
+                      ? homeCategoriesStyles.categoryActive
+                      : [
+                          homeCategoriesStyles.category,
+                          {
+                            backgroundColor:
+                              Colors[colorScheme ?? "light"].backgroundColor,
+                          },
+                        ]
+                  }
+                >
+                  <Text style={homeCategoriesStyles.categoryText}>{item}</Text>
+                </Pressable>
+              );
+            }}
+            estimatedItemSize={50}
+            data={categories.map((category) => category.name)}
+          />
         </View>
       </ScrollView>
     </SafeAreaView>
@@ -122,12 +184,14 @@ const homeSearchStyles = StyleSheet.create({
   container: {
     display: "flex",
     marginTop: 40,
+    marginBottom: 20,
     flexDirection: "row",
     alignItems: "center",
     justifyContent: "space-between",
-    paddingHorizontal: 15,
-    paddingVertical: 10,
-    borderRadius: 20,
+    paddingLeft: 15,
+    paddingRight: 10,
+    paddingVertical: 8,
+    borderRadius: 100,
     width: "100%",
   },
   left: {
@@ -143,14 +207,43 @@ const homeSearchStyles = StyleSheet.create({
   button: {
     alignItems: "center",
     justifyContent: "center",
-    paddingVertical: 12,
+    paddingVertical: 14,
     paddingHorizontal: 32,
-    borderRadius: 10,
+    borderRadius: 100,
     backgroundColor: "#FB6A01",
   },
   text: {
     fontSize: 12,
     fontFamily: "manrope_semibold",
     color: "white",
+  },
+});
+
+const homeCategoriesStyles = StyleSheet.create({
+  container: {
+    paddingVertical: 10,
+  },
+  category: {
+    marginRight: 20,
+    borderRadius: 100,
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+  },
+  categoryActive: {
+    marginRight: 20,
+    borderRadius: 100,
+    backgroundColor: "#FB6A01",
+    display: "flex",
+    alignItems: "center",
+    justifyContent: "center",
+    paddingVertical: 10,
+    paddingHorizontal: 20,
+  },
+  categoryText: {
+    fontSize: 14,
+    fontFamily: "manrope_regular",
   },
 });
