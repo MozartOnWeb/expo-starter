@@ -78,26 +78,28 @@ export default function TabOneScreen() {
         </View>
 
         {/* HOME SEARCH SECTION */}
-        <View
-          lightColor="#eee"
-          darkColor="rgba(255,255,255,0.1)"
-          style={homeSearchStyles.container}
-        >
-          <View style={homeSearchStyles.left}>
-            <SvgXml
-              xml={SearchIcon}
-              width={24}
-              height={24}
-              fill={Colors[colorScheme ?? "light"].tabIconDefault}
-            />
-            <TextInput
-              style={homeSearchStyles.textInput}
-              placeholder="Find interesting news"
-            />
+        <View style={{ paddingHorizontal: 20 }}>
+          <View
+            lightColor="#eee"
+            darkColor="rgba(255,255,255,0.1)"
+            style={homeSearchStyles.container}
+          >
+            <View style={homeSearchStyles.left}>
+              <SvgXml
+                xml={SearchIcon}
+                width={24}
+                height={24}
+                fill={Colors[colorScheme ?? "light"].tabIconDefault}
+              />
+              <TextInput
+                style={homeSearchStyles.textInput}
+                placeholder="Find interesting news"
+              />
+            </View>
+            <Pressable style={homeSearchStyles.button}>
+              <Text style={homeSearchStyles.text}>Search</Text>
+            </Pressable>
           </View>
-          <Pressable style={homeSearchStyles.button}>
-            <Text style={homeSearchStyles.text}>Search</Text>
-          </Pressable>
         </View>
 
         {/* HOME CATEGORIES SECTION */}
@@ -139,9 +141,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
   },
-  scrollview: {
-    paddingHorizontal: 20,
-  },
+  scrollview: {},
 });
 
 const headerStyles = StyleSheet.create({
@@ -151,6 +151,7 @@ const headerStyles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
+    paddingHorizontal: 20,
   },
   profile: {
     display: "flex",
@@ -222,6 +223,7 @@ const homeSearchStyles = StyleSheet.create({
 const homeCategoriesStyles = StyleSheet.create({
   container: {
     paddingVertical: 10,
+    paddingLeft: 20,
   },
   category: {
     marginRight: 20,
