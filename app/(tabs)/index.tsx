@@ -48,24 +48,27 @@ const categories = [
 const mainPosts = [
   {
     from: "CNN Mali",
-    image: require("../../assets/images/cr7&messi.webp"),
+    image: require("../../assets/images/cr7&messi.jpeg"),
     title: "Lionel Messi Wants To Fight Cristian Ronaldo again",
     comments: "978",
     share: "4.5k",
+    date: "2 Heures",
   },
   {
     from: "CNN Mali",
-    image: require("../../assets/images/cr7&messi.webp"),
+    image: require("../../assets/images/cr7&messi.jpeg"),
     title: "Lionel Messi Wants To Fight Cristian Ronaldo again",
     comments: "978",
     share: "4.5k",
+    date: "2 Heures",
   },
   {
     from: "CNN Mali",
-    image: require("../../assets/images/cr7&messi.webp"),
+    image: require("../../assets/images/cr7&messi.jpeg"),
     title: "Lionel Messi Wants To Fight Cristian Ronaldo again",
     comments: "978",
     share: "4.5k",
+    date: "2 Heures",
   },
 ];
 
@@ -177,6 +180,7 @@ export default function TabOneScreen() {
                 title: string;
                 comments: string;
                 share: string;
+                date: string;
               };
             }) => {
               return <MainPost {...item} />;
