@@ -13,6 +13,9 @@ import {
 } from "../../components/Themed";
 import Colors from "../../constants/Colors";
 
+//import components
+import MainPost from "../../components/home/MainPost";
+
 import { NotificationsIcon, SearchIcon } from "../../assets/icons";
 
 const blurhash =
@@ -39,6 +42,16 @@ const categories = [
   },
   {
     name: "Health",
+  },
+];
+
+const mainPosts = [
+  {
+    from: "CNN Mali",
+    image: require("../../assets/images/cnn.png"),
+    title: "Lionel Messi Wants To Fight Cristian Ronaldo again",
+    comments: "978",
+    share: "4.5k",
   },
 ];
 
@@ -130,6 +143,19 @@ export default function TabOneScreen() {
             }}
             estimatedItemSize={50}
             data={categories.map((category) => category.name)}
+          />
+        </View>
+
+        {/* HOME MAIN NEWS SECTION */}
+        <View>
+          <FlashList
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            estimatedItemSize={50}
+            data={categories.map((category) => category.name)}
+            renderItem={({ item }: { item: string }) => {
+              return <MainPost />;
+            }}
           />
         </View>
       </ScrollView>
