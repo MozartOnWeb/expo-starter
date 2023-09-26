@@ -48,7 +48,21 @@ const categories = [
 const mainPosts = [
   {
     from: "CNN Mali",
-    image: require("../../assets/images/cnn.png"),
+    image: require("../../assets/images/cr7&messi.webp"),
+    title: "Lionel Messi Wants To Fight Cristian Ronaldo again",
+    comments: "978",
+    share: "4.5k",
+  },
+  {
+    from: "CNN Mali",
+    image: require("../../assets/images/cr7&messi.webp"),
+    title: "Lionel Messi Wants To Fight Cristian Ronaldo again",
+    comments: "978",
+    share: "4.5k",
+  },
+  {
+    from: "CNN Mali",
+    image: require("../../assets/images/cr7&messi.webp"),
     title: "Lionel Messi Wants To Fight Cristian Ronaldo again",
     comments: "978",
     share: "4.5k",
@@ -147,14 +161,25 @@ export default function TabOneScreen() {
         </View>
 
         {/* HOME MAIN NEWS SECTION */}
-        <View>
+        <View style={{ marginTop: 20 }}>
           <FlashList
             horizontal
             showsHorizontalScrollIndicator={false}
+            contentContainerStyle={homeMainPostStyles.container}
             estimatedItemSize={50}
-            data={categories.map((category) => category.name)}
-            renderItem={({ item }: { item: string }) => {
-              return <MainPost />;
+            data={mainPosts}
+            renderItem={({
+              item,
+            }: {
+              item: {
+                from: string;
+                image: any;
+                title: string;
+                comments: string;
+                share: string;
+              };
+            }) => {
+              return <MainPost {...item} />;
             }}
           />
         </View>
@@ -273,5 +298,12 @@ const homeCategoriesStyles = StyleSheet.create({
   categoryText: {
     fontSize: 14,
     fontFamily: "manrope_regular",
+  },
+});
+
+const homeMainPostStyles = StyleSheet.create({
+  container: {
+    paddingVertical: 10,
+    paddingLeft: 20,
   },
 });
