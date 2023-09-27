@@ -15,6 +15,7 @@ import Colors from "../../constants/Colors";
 
 //import components
 import MainPost from "../../components/home/MainPost";
+import RecommandationPost from "../../components/home/RecommandationPost";
 
 import { NotificationsIcon, SearchIcon } from "../../assets/icons";
 
@@ -184,10 +185,22 @@ export default function TabOneScreen() {
                 date: string;
               };
             }) => {
-              return <MainPost {...item} />;
+              return (
+                <MainPost onPress={() => console.log(item.title)} {...item} />
+              );
             }}
           />
         </View>
+
+        {/* RECOMMANDATION SECTION */}
+        <View style={recommandationsStyles.header}>
+          <Text style={recommandationsStyles.headerTitle}>Recommandations</Text>
+          <Pressable>
+            <Text style={recommandationsStyles.headerSeeAll}>See all</Text>
+          </Pressable>
+        </View>
+
+        {/* RECOMMANDATION POSTS */}
       </ScrollView>
     </SafeAreaView>
   );
@@ -310,5 +323,24 @@ const homeMainPostStyles = StyleSheet.create({
   container: {
     paddingVertical: 10,
     paddingLeft: 20,
+  },
+});
+
+const recommandationsStyles = StyleSheet.create({
+  header: {
+    marginTop: 30,
+    paddingHorizontal: 20,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "baseline",
+  },
+  headerTitle: {
+    fontSize: 16,
+    fontFamily: "manrope_semibold",
+  },
+  headerSeeAll: {
+    fontFamily: "manrope_regular",
+    color: "#FB6A01",
+    textDecorationLine: "underline",
   },
 });

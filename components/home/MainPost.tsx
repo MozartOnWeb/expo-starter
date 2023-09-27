@@ -1,4 +1,4 @@
-import { StyleSheet, Text, View } from "react-native";
+import { StyleSheet, Text, View, Pressable } from "react-native";
 import { Image } from "expo-image";
 import { SvgXml } from "react-native-svg";
 import { LinearGradient } from "expo-linear-gradient";
@@ -10,6 +10,7 @@ interface MainPostProps {
   comments: string;
   share: string;
   date: string;
+  onPress: () => void;
 }
 
 const blurhash =
@@ -24,9 +25,10 @@ const MainPost = ({
   share,
   title,
   date,
+  onPress,
 }: MainPostProps) => {
   return (
-    <View style={styles.container}>
+    <Pressable onPress={onPress} style={styles.container}>
       <Image
         contentFit="cover"
         transition={1000}
@@ -54,20 +56,20 @@ const MainPost = ({
             <View
               style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
             >
-              <SvgXml xml={CommentIcon} width={18} height={18} />
+              <SvgXml xml={CommentIcon} width={16} height={16} />
               <Text style={styles.infosBottomText}>{comments}</Text>
             </View>
             <View
               style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
             >
-              <SvgXml xml={ShareIcon} width={18} height={18} />
+              <SvgXml xml={ShareIcon} width={16} height={16} />
               <Text style={styles.infosBottomText}>{share}</Text>
             </View>
           </View>
           <Text style={styles.infosBottomText}>Il y'a {date}</Text>
         </View>
       </View>
-    </View>
+    </Pressable>
   );
 };
 
