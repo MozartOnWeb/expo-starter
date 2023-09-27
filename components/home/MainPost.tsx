@@ -14,6 +14,8 @@ interface MainPostProps {
 const blurhash =
   "|rF?hV%2WCj[ayj[a|j[az_NaeWBj@ayfRayfQfQM{M|azj[azf6fQfQfQIpWXofj[ayj[j[fQayWCoeoeaya}j[ayfQa{oLj?j[WVj[ayayj[fQoff7azayj[ayj[j[ayofayayayj[fQj[ayayj[ayfjj[j[ayjuayj[";
 
+import { VerifyIcon, CommentIcon, ShareIcon } from "../../assets/icons";
+
 const MainPost = ({
   comments,
   from,
@@ -33,23 +35,30 @@ const MainPost = ({
         style={styles.image}
         placeholder={blurhash}
       />
-      <View>
-        <View>
-          <Text>{from}</Text>
+      <View style={styles.infosWrapper}>
+        <View style={styles.fromContainer}>
+          <Text style={styles.fromText}>{from}</Text>
+          <SvgXml xml={VerifyIcon} width={24} height={24} />
         </View>
 
-        <Text>{title}</Text>
+        <Text style={styles.title}>{title}</Text>
 
-        <View>
-          <View>
-            <View>
-              <Text>{comments}</Text>
+        <View style={styles.infosBottom}>
+          <View style={{ flexDirection: "row", alignItems: "center", gap: 15 }}>
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
+            >
+              <SvgXml xml={CommentIcon} width={18} height={18} />
+              <Text style={styles.infosBottomText}>{comments}</Text>
             </View>
-            <View>
-              <Text>{share}</Text>
+            <View
+              style={{ flexDirection: "row", alignItems: "center", gap: 5 }}
+            >
+              <SvgXml xml={ShareIcon} width={18} height={18} />
+              <Text style={styles.infosBottomText}>{share}</Text>
             </View>
           </View>
-          <Text>Il y'a {date}</Text>
+          <Text style={styles.infosBottomText}>Il y'a {date}</Text>
         </View>
       </View>
     </View>
@@ -64,8 +73,10 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     position: "relative",
     height: 340,
+    width: 330,
     overflow: "hidden",
     marginRight: 20,
+    justifyContent: "flex-end",
   },
   image: {
     flex: 1,
@@ -79,5 +90,36 @@ const styles = StyleSheet.create({
     left: 0,
     objectFit: "cover",
     zIndex: -1,
+  },
+  infosWrapper: {
+    paddingHorizontal: 20,
+    paddingVertical: 20,
+  },
+  fromContainer: {
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 10,
+    gap: 5,
+  },
+  fromText: {
+    color: "white",
+    fontFamily: "manrope_semibold",
+    fontSize: 16,
+  },
+  title: {
+    color: "white",
+    fontFamily: "manrope_bold",
+    fontSize: 20,
+    marginBottom: 10,
+  },
+  infosBottom: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
+  infosBottomText: {
+    color: "white",
+    fontFamily: "manrope_regular",
+    fontSize: 14,
   },
 });
