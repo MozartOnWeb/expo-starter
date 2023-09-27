@@ -48,9 +48,8 @@ const categories = [
 const mainPosts = [
   {
     from: "Otaku World",
-    image:
-      "https://i.pinimg.com/564x/01/45/bd/0145bd7a6cfb956bdef62cb2ea60276f.jpg",
-    title: "Jujutsu Kaisen 0: The Movie, The Saga Continues",
+    image: "https://fr.web.img6.acsta.net/pictures/23/08/01/16/46/1630654.jpg",
+    title: "One Piece Live Action Announced",
     comments: "978",
     share: "4.5k",
     date: "2 Heures",
@@ -60,18 +59,17 @@ const mainPosts = [
     image:
       "https://i.pinimg.com/564x/01/45/bd/0145bd7a6cfb956bdef62cb2ea60276f.jpg",
     title: "Lionel Messi Wants To Fight Cristian Ronaldo again",
-    comments: "978",
-    share: "4.5k",
-    date: "2 Heures",
+    comments: "312",
+    share: "1.8k",
+    date: "1 jours",
   },
   {
-    from: "CNN Mali",
-    image:
-      "https://i.pinimg.com/564x/01/45/bd/0145bd7a6cfb956bdef62cb2ea60276f.jpg",
-    title: "Lionel Messi Wants To Fight Cristian Ronaldo again",
-    comments: "978",
-    share: "4.5k",
-    date: "2 Heures",
+    from: "Rap Planet",
+    image: "https://pbs.twimg.com/media/F2T0mxRWkAAacO5.jpg:large",
+    title: "Freeze Corleone, target of the LICRA",
+    comments: "3K",
+    share: "8.1k",
+    date: "14 heures",
   },
 ];
 
