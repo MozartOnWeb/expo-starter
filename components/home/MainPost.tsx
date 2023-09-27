@@ -1,6 +1,7 @@
 import { StyleSheet, Text, View } from "react-native";
 import { Image } from "expo-image";
 import { SvgXml } from "react-native-svg";
+import { LinearGradient } from "expo-linear-gradient";
 
 interface MainPostProps {
   from: string;
@@ -29,19 +30,24 @@ const MainPost = ({
       <Image
         contentFit="cover"
         transition={1000}
-        source={{
-          uri: "https://i.pinimg.com/564x/01/45/bd/0145bd7a6cfb956bdef62cb2ea60276f.jpg",
-        }}
+        source={image}
         style={styles.image}
         placeholder={blurhash}
+      />
+      <LinearGradient
+        // Background Linear Gradient
+        colors={["transparent", "rgba(0,0,0,0.85)"]}
+        style={styles.background}
       />
       <View style={styles.infosWrapper}>
         <View style={styles.fromContainer}>
           <Text style={styles.fromText}>{from}</Text>
-          <SvgXml xml={VerifyIcon} width={24} height={24} />
+          <SvgXml xml={VerifyIcon} width={22} height={22} />
         </View>
 
-        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.title} numberOfLines={2}>
+          {title}
+        </Text>
 
         <View style={styles.infosBottom}>
           <View style={{ flexDirection: "row", alignItems: "center", gap: 15 }}>
@@ -78,7 +84,7 @@ const styles = StyleSheet.create({
     marginRight: 20,
     justifyContent: "flex-end",
   },
-  image: {
+  background: {
     flex: 1,
     borderRadius: 20,
     alignItems: "center",
@@ -90,6 +96,19 @@ const styles = StyleSheet.create({
     left: 0,
     objectFit: "cover",
     zIndex: -1,
+  },
+  image: {
+    flex: 1,
+    borderRadius: 20,
+    alignItems: "center",
+    justifyContent: "center",
+    width: "100%",
+    height: "100%",
+    position: "absolute",
+    top: 0,
+    left: 0,
+    objectFit: "cover",
+    zIndex: -2,
   },
   infosWrapper: {
     paddingHorizontal: 20,
@@ -110,7 +129,7 @@ const styles = StyleSheet.create({
     color: "white",
     fontFamily: "manrope_bold",
     fontSize: 20,
-    marginBottom: 10,
+    marginBottom: 15,
   },
   infosBottom: {
     flexDirection: "row",

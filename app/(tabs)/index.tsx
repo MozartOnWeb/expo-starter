@@ -47,8 +47,18 @@ const categories = [
 
 const mainPosts = [
   {
+    from: "Otaku World",
+    image:
+      "https://i.pinimg.com/564x/01/45/bd/0145bd7a6cfb956bdef62cb2ea60276f.jpg",
+    title: "Jujutsu Kaisen 0: The Movie, The Saga Continues",
+    comments: "978",
+    share: "4.5k",
+    date: "2 Heures",
+  },
+  {
     from: "CNN Mali",
-    image: require("../../assets/images/cr7&messi.jpeg"),
+    image:
+      "https://i.pinimg.com/564x/01/45/bd/0145bd7a6cfb956bdef62cb2ea60276f.jpg",
     title: "Lionel Messi Wants To Fight Cristian Ronaldo again",
     comments: "978",
     share: "4.5k",
@@ -56,15 +66,8 @@ const mainPosts = [
   },
   {
     from: "CNN Mali",
-    image: require("../../assets/images/cr7&messi.jpeg"),
-    title: "Lionel Messi Wants To Fight Cristian Ronaldo again",
-    comments: "978",
-    share: "4.5k",
-    date: "2 Heures",
-  },
-  {
-    from: "CNN Mali",
-    image: require("../../assets/images/cr7&messi.jpeg"),
+    image:
+      "https://i.pinimg.com/564x/01/45/bd/0145bd7a6cfb956bdef62cb2ea60276f.jpg",
     title: "Lionel Messi Wants To Fight Cristian Ronaldo again",
     comments: "978",
     share: "4.5k",
